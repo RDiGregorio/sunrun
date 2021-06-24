@@ -19,17 +19,19 @@ function App() {
                     if(!results[routeId] || results[routeId] < arrivalTime) {
                         results[routeId] = {
                             destination: destination,
-                            route_id: data.relationships.route.data.id,
-                            arrival_time: data.attributes.arrival_time
+                            route_id: routeId,
+                            arrival_time: arrivalTime
                         };
                     }
                 }
             });
 
             for (const property in results) {
+                let time = new Date(results[property].arrival_time);
+
                 const element = <div>
                     <div>destination: {results[property].destination}</div>
-                    <div>arrival time: {results[property].arrival_time}</div>
+                    <div>arrival time: {time.getHours()}:{time.getMinutes()}</div>
                 </div>;
 
                 ReactDOM.render(element, document.getElementById("arrivals"));
