@@ -16,7 +16,7 @@ function App() {
                     let routeId = data.relationships.route.data.id;
                     let arrivalTime = Date.parse(data.attributes.arrival_time);
 
-                    if(!results[routeId] || results[routeId] < arrivalTime) {
+                    if (!results[routeId] || results[routeId] < arrivalTime) {
                         results[routeId] = {
                             destination: destination,
                             route_id: routeId,
@@ -29,9 +29,9 @@ function App() {
             for (const property in results) {
                 let time = new Date(results[property].arrival_time);
 
-                const element = <div>
-                    <div>destination: {results[property].destination}</div>
-                    <div>arrival time: {time.getHours()}:{time.getMinutes()}</div>
+                const element = <div className="row">
+                    <span >{results[property].destination}</span>
+                    <span>{time.getHours()}:{time.getMinutes()}</span>
                 </div>;
 
                 ReactDOM.render(element, document.getElementById("arrivals"));
@@ -44,6 +44,10 @@ function App() {
 
     return (
         <div className="App">
+            <div className="header">
+                <span>Destination</span>
+                <span>Arrival Time</span>
+            </div>
             <div id="arrivals"></div>
         </div>
     );

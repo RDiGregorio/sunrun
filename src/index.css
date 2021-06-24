@@ -4,13 +4,19 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
   font-weight: bold;
   background-color: black;
   color: yellow;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.row span {
+  display: inline-block;
+  color: yellow;
+  width: 50%;
+}
+
+.header span {
+  display: inline-block;
+  color: gray;
+  width: 50%;
 }
